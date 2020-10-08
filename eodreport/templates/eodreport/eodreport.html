@@ -1,0 +1,140 @@
+{% extends 'base_homepage.html' %}
+
+{% block content %}
+<header id="header">
+    <a href="#" id="blog-header">Blog</a></h1>
+    <nav id="nav">
+        <ul>
+            <li><a href="#">S&P500 Charts</a></li>
+            <li><a href="#">Fixed Income Charts</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Charts -->
+<section id="financial-markets-charts" class="charts">
+    <div class="container">
+        <header class="section major">
+            <h2>S&P Charts</h2>
+        </header>
+        <div class="chart row">
+            <div class="chart large">
+                <header class="chart-title">
+                    <h3>Top 10 Movers by Sector</h3>
+                </header>
+                <div>
+                    {% if equitiesSectorFlow %}
+                    {{ equitiesSectorFlow|safe }}
+                    {% else %}
+                    <p>No graph was provided.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="chart row">
+            <div class="chart normal">
+                <header class="chart-title">
+                    <h3>Sector Inflow/Outflow</h3>
+                </header>
+                <div>
+                    {% if equitiesSectorTop10Movers %}
+                    {{ equitiesSectorTop10Movers|safe }}
+                    {% else %}
+                    <p>No graph was provided.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="chart row">
+            <div class="chart normal">
+                <header class="chart-title">
+                    <h3>Monthly S&P Inflow/Outflow</h3>
+                </header>
+                <div>
+                    {% if equitiesSectorTop10Movers %}
+                    {{ equitiesSectorTop10Movers|safe }}
+                    {% else %}
+                    <p>No graph was provided.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <header class="section major">
+            <h2>Rates & Yields Charts</h2>
+        </header>
+        <div class="chart row">
+            <div class="chart small">
+                <header class="chart-title">
+                    <h3>T-1 & T-2 Treasury Curve</h3>
+                </header>
+                <div>
+                    {% if ratesToday %}
+                    {{ ratesToday|safe }}
+                    {% else %}
+                    <p>No graph was provided.</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="chart small">
+                <header class="chart-title">
+                    <h3>2 vs 10 Spread</h3>
+                </header>
+                <div>
+                    {% if ratesSpreads %}
+                    {{ ratesSpreads|safe }}
+                    {% else %}
+                    <p>No graph was provided.</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="chart small">
+                <header class="chart-title">
+                    <h3>IG Yields vs HY Yields</h3>
+                </header>
+                <div>
+                    {% if yieldsIGHY %}
+                    {{ yieldsIGHY|safe }}
+                    {% else %}
+                    <p>No graph was provided.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- list that contains top 10 mentioned tickers -->
+<section id="reddit-data" class="reddit-stream">
+    <div class="container">
+        <div>
+            <!-- list that contains top 10 mentioned tickers, clicking on the tickers should fill the search by ticker field -->
+            <ul class="ranking">
+                <li>test1</li>
+                <li>test2</li>
+                <li>test3</li>
+                <li>test4</li>
+                <!-- {% for ticker in top_mentioned_tickers %}
+                <li>{ticker}</li>
+                {% endfor %} -->
+            </ul>
+        </div>
+        <div>
+            <form>
+                <label for="ticker">Ticker:</label>
+                <input type="text" id="ticker" name="ticker">
+            </form>
+        </div>
+        <!-- the top threads in the last 24 hrs by ticker -->
+        <!-- the top comments in the last 24 hrs by ticker -->
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer id="footer">
+    <ul class="icons">
+        <li><a href="mailto: email@email.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a>
+        </li>
+    </ul>
+</footer>
+{% endblock %}

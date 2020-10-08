@@ -1,0 +1,13 @@
+{% extends 'base_blogs.html' %}
+
+{% block content %}
+    <div class="blogs">
+        {% for blog in blogs %}
+            <div class="blog">
+                <h2><a href="{% url 'blog_detail' slug=blog.slug %}">{{ blog.title }}</a></h2>
+                <p>{{ blog.body_snippet }}</p>
+                <p>{{ blog.date }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
