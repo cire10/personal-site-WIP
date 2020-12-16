@@ -1,2 +1,2 @@
-# personal-site-WIP
-work in progress - personal site using Django
+# finance site
+work in progress - finance site using Django
