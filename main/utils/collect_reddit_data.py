@@ -18,7 +18,6 @@ reddit = praw.Reddit(
 
 def get_thread_ticker(title, body):
     capitalized_words = set()
-
     def helper(string):
         tokenized_string = string.split()
         for word in tokenized_string:
@@ -29,14 +28,10 @@ def get_thread_ticker(title, body):
     return capitalized_words
 
 
-def funcname(parameter_list):
-    """
-    docstring
-    """
-    pass
-
-
 def get_posts():
     """get all posts from the last 24 hours
     """
     pass
+
+
+# it will be worthwhile to look at the growth in AUM for all ETFs DoD

@@ -4,7 +4,7 @@ from django.utils.text import slugify
 # Create your models here.
 # convention is capitalized word
 class Blog(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, max_length=200, null=False)
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
